@@ -12,7 +12,7 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     var shadows = CustomizeShadows()
     
-    var levelsArray = [LevelModel(puzzleId: 0, puzzleImage: UIImage(named: "imageLvl1")!),
+    var levelsArray = [LevelModel(puzzleId: 0, puzzleImage: UIImage(named: "imagelvl1")!),
                        LevelModel(puzzleId: 1, puzzleImage: UIImage(named: "imageLvl2")!),
                        LevelModel(puzzleId: 2, puzzleImage: UIImage(named: "imageLvl3")!),
                        LevelModel(puzzleId: 3, puzzleImage: UIImage(named: "imageLvl4")!),
