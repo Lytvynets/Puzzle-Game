@@ -7,19 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1828700829A8AB160061EBE4 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828700729A8AB160061EBE4 /* LevelModel.swift */; };
+		1828700A29A911BA0061EBE4 /* CustomizeShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828700929A911BA0061EBE4 /* CustomizeShadows.swift */; };
+		18429D6D29A7B7D900AB9E80 /* MainScreenLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */; };
+		18429D6F29A7BA9D00AB9E80 /* levelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18429D6E29A7BA9D00AB9E80 /* levelsCell.swift */; };
+		186EA79929A7DA1500263CD1 /* CurrentLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EA79829A7DA1500263CD1 /* CurrentLevelViewController.swift */; };
+		18AD9ED629A8307200B34C62 /* LevelEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD9ED529A8307200B34C62 /* LevelEndScreen.swift */; };
+		18C7A1E229A78FF700E87F0B /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7A1E129A78FF700E87F0B /* LevelsViewController.swift */; };
+		18C7A1E429A7A29F00E87F0B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7A1E329A7A29E00E87F0B /* SettingsViewController.swift */; };
 		18D8E43B29A778A5009A3802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E43A29A778A5009A3802 /* AppDelegate.swift */; };
 		18D8E43D29A778A5009A3802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E43C29A778A5009A3802 /* SceneDelegate.swift */; };
-		18D8E43F29A778A5009A3802 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E43E29A778A5009A3802 /* ViewController.swift */; };
+		18D8E43F29A778A5009A3802 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E43E29A778A5009A3802 /* MainViewController.swift */; };
 		18D8E44229A778A5009A3802 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D8E44029A778A5009A3802 /* Main.storyboard */; };
 		18D8E44429A778A6009A3802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D8E44329A778A6009A3802 /* Assets.xcassets */; };
 		18D8E44729A778A6009A3802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D8E44529A778A6009A3802 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1828700729A8AB160061EBE4 /* LevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
+		1828700929A911BA0061EBE4 /* CustomizeShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeShadows.swift; sourceTree = "<group>"; };
+		18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenLayout.swift; sourceTree = "<group>"; };
+		18429D6E29A7BA9D00AB9E80 /* levelsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelsCell.swift; sourceTree = "<group>"; };
+		186EA79829A7DA1500263CD1 /* CurrentLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevelViewController.swift; sourceTree = "<group>"; };
+		18AD9ED529A8307200B34C62 /* LevelEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEndScreen.swift; sourceTree = "<group>"; };
+		18C7A1E129A78FF700E87F0B /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		18C7A1E329A7A29E00E87F0B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18D8E43729A778A5009A3802 /* Puzzle-Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D8E43A29A778A5009A3802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D8E43C29A778A5009A3802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18D8E43E29A778A5009A3802 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18D8E43E29A778A5009A3802 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18D8E44129A778A5009A3802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18D8E44329A778A6009A3802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D8E44629A778A6009A3802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +53,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18429D6B29A7B76200AB9E80 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				18D8E43E29A778A5009A3802 /* MainViewController.swift */,
+				18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		1892206429A985860047C8E9 /* SystemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				18D8E43A29A778A5009A3802 /* AppDelegate.swift */,
+				18D8E43C29A778A5009A3802 /* SceneDelegate.swift */,
+			);
+			path = SystemFiles;
+			sourceTree = "<group>";
+		};
+		1892206529A985A80047C8E9 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1828700929A911BA0061EBE4 /* CustomizeShadows.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		1892206629A985F20047C8E9 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				18C7A1E129A78FF700E87F0B /* LevelsViewController.swift */,
+				186EA79829A7DA1500263CD1 /* CurrentLevelViewController.swift */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		18AD9ED929A830B400B34C62 /* ModelCell */ = {
+			isa = PBXGroup;
+			children = (
+				18429D6E29A7BA9D00AB9E80 /* levelsCell.swift */,
+				1828700729A8AB160061EBE4 /* LevelModel.swift */,
+			);
+			path = ModelCell;
+			sourceTree = "<group>";
+		};
+		18AD9EDA29A830CB00B34C62 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				18C7A1E329A7A29E00E87F0B /* SettingsViewController.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		18AD9EDB29A830E700B34C62 /* LevelEnd */ = {
+			isa = PBXGroup;
+			children = (
+				18AD9ED529A8307200B34C62 /* LevelEndScreen.swift */,
+			);
+			path = LevelEnd;
+			sourceTree = "<group>";
+		};
 		18D8E42E29A778A5009A3802 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +132,13 @@
 		18D8E43929A778A5009A3802 /* Puzzle-Game */ = {
 			isa = PBXGroup;
 			children = (
-				18D8E43A29A778A5009A3802 /* AppDelegate.swift */,
-				18D8E43C29A778A5009A3802 /* SceneDelegate.swift */,
-				18D8E43E29A778A5009A3802 /* ViewController.swift */,
+				1892206429A985860047C8E9 /* SystemFiles */,
+				18429D6B29A7B76200AB9E80 /* MainScreen */,
+				1892206629A985F20047C8E9 /* Levels */,
+				18AD9ED929A830B400B34C62 /* ModelCell */,
+				18AD9EDA29A830CB00B34C62 /* SettingsScreen */,
+				1892206529A985A80047C8E9 /* SupportFiles */,
+				18AD9EDB29A830E700B34C62 /* LevelEnd */,
 				18D8E44029A778A5009A3802 /* Main.storyboard */,
 				18D8E44329A778A6009A3802 /* Assets.xcassets */,
 				18D8E44529A778A6009A3802 /* LaunchScreen.storyboard */,
@@ -138,9 +218,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D8E43F29A778A5009A3802 /* ViewController.swift in Sources */,
+				18429D6D29A7B7D900AB9E80 /* MainScreenLayout.swift in Sources */,
+				18429D6F29A7BA9D00AB9E80 /* levelsCell.swift in Sources */,
+				186EA79929A7DA1500263CD1 /* CurrentLevelViewController.swift in Sources */,
+				18AD9ED629A8307200B34C62 /* LevelEndScreen.swift in Sources */,
+				18D8E43F29A778A5009A3802 /* MainViewController.swift in Sources */,
 				18D8E43B29A778A5009A3802 /* AppDelegate.swift in Sources */,
 				18D8E43D29A778A5009A3802 /* SceneDelegate.swift in Sources */,
+				1828700829A8AB160061EBE4 /* LevelModel.swift in Sources */,
+				1828700A29A911BA0061EBE4 /* CustomizeShadows.swift in Sources */,
+				18C7A1E429A7A29F00E87F0B /* SettingsViewController.swift in Sources */,
+				18C7A1E229A78FF700E87F0B /* LevelsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
