@@ -94,7 +94,7 @@ class MainViewController: UIViewController {
     @objc func playButtonAction() {
         let vc = LevelsViewController()
         vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .flipHorizontal
+       // vc.modalTransitionStyle = .flipHorizontal
         self.present(vc, animated: true)
         
     }
