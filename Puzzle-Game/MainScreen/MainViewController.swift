@@ -59,7 +59,7 @@ class MainViewController: UIViewController {
         button.layer.borderWidth = 5
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(endScreenButtonAction), for: .touchUpInside)
+        //   button.addTarget(self, action: #selector(endScreenButtonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -69,7 +69,7 @@ class MainViewController: UIViewController {
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(named: "image 5")
-        imageView.contentMode = .scaleToFill //.scaleAspectFit
+        imageView.contentMode = .scaleToFill 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -106,12 +106,12 @@ class MainViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
-    @objc func endScreenButtonAction() {
-        let vc = LevelEndScreen()
-        vc.result = .win
-      //  vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
-    }
+    //    @objc func endScreenButtonAction() {
+    //        let vc = LevelEndScreen()
+    //        vc.result = .win
+    //      //  vc.modalPresentationStyle = .fullScreen
+    //        self.present(vc, animated: true)
+    //    }
     
 }
 

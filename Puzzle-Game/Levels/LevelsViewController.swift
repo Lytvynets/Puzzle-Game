@@ -182,7 +182,7 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
         levelsCollectionView.backgroundColor = .clear
     }
     
-    func collectionViewLayout() {
+    private func collectionViewLayout() {
         NSLayoutConstraint.activate([
             levelsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             levelsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
@@ -192,7 +192,7 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    func backgroundImageConstraint(){
+    private func backgroundImageConstraint(){
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -202,7 +202,7 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    func backButtonConstraint(){
+    private func backButtonConstraint(){
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),

@@ -130,34 +130,29 @@ class LevelEndScreen: UIViewController {
     }
     
     
+    //MARK: - Layout
     private func layoutSettings() {
         NSLayoutConstraint.activate([
             resultImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             resultImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             resultImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
-           
             resultImageView2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             resultImageView2.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: -100),
             resultImageView2.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
-            
             timeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timeImageView.topAnchor.constraint(equalTo: resultImageView2.bottomAnchor, constant: 5),
             timeImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
             timetLabel.centerXAnchor.constraint(equalTo: timeImageView.centerXAnchor),
             timetLabel.centerYAnchor.constraint(equalTo: timeImageView.centerYAnchor),
-            
             bestImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bestImageView.topAnchor.constraint(equalTo: timeImageView.bottomAnchor, constant: 2),
             bestImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
             bestTimetLabel.centerXAnchor.constraint(equalTo: bestImageView.centerXAnchor),
             bestTimetLabel.centerYAnchor.constraint(equalTo: bestImageView.centerYAnchor),
-            
             homeButton.topAnchor.constraint(equalTo: bestImageView.bottomAnchor, constant: 10),
             homeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            
             repeatButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             repeatButton.topAnchor.constraint(equalTo: bestImageView.bottomAnchor, constant: 5),
-            
             nextButton.topAnchor.constraint(equalTo: bestImageView.bottomAnchor, constant: 10),
             nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
         ])

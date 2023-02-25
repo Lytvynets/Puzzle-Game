@@ -46,7 +46,6 @@ class SettingsViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
-        // button.addTarget(self, action: #selector(playButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -59,7 +58,6 @@ class SettingsViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
-        // button.addTarget(self, action: #selector(playButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -84,7 +82,6 @@ class SettingsViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
-        // button.addTarget(self, action: #selector(playButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -96,7 +93,6 @@ class SettingsViewController: UIViewController {
         button.layer.borderWidth = 5
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25
-        //  button.addTarget(self, action: #selector(settingsButtonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

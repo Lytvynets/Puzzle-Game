@@ -17,7 +17,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     var runCount = 12
     var imageLevel = UIImage()
     var timer: Timer?
-   
+    
     
     lazy private var referenceImage: UIImageView = {
         let image = UIImageView()
@@ -74,7 +74,6 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     lazy private var reloadButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Group 2"), for: .normal)
-        //  button.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -94,7 +93,6 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         label.text = "--:--"
         label.textColor = .white
         label.textAlignment = .center
-        // label.font = UIFont(name: "Marker felt", size: 34)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -108,8 +106,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     }()
     
     
-   
-    
+    //MARK: Init
     init(lvlArray: [LevelModel], numberOfLevel: Int, imageLevel: UIImage, time: Int) {
         super.init(nibName: nil, bundle: nil)
         self.currentLevelArray = lvlArray
@@ -122,7 +119,6 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         fatalError("init(coder:) has not been implemented")
     }
     
-    var dateComponents = DateComponents()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,94 +134,35 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         view.addSubview(borderImage)
         view.addSubview(borderReferenceImage)
         
-        
-        dateComponents.timeZone = .none
-        dateComponents.minute = 1
-        dateComponents.second = 10
-        
-        
         currentlevelLabel.text = "LVL-\(numberOfLevel)"
-        
-        shadows.makeShadowForOne(object: timerLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.0, Opacity: 2.0)
-        
-        shadows.makeShadowForOne(object: currentlevelLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.0, Opacity: 2.0)
-        
         backgroundTimeLabel.image = UIImage(named: "Rectangle 3")
         backgroundLevelLabel.image = UIImage(named: "Rectangle 3")
-        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        
-        referenceImage.image = imageLevel 
+        referenceImage.image = imageLevel
         borderImage.image = UIImage(named: "candy frame")
         borderReferenceImage.image = UIImage(named: "candy frame")
         levelsCollectionView.backgroundColor = .white
-        
         currentLevelArray.shuffle()
+        
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(gester))
         levelsCollectionView.addGestureRecognizer(gesture)
         
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 5.0
-        layout.minimumInteritemSpacing = 5.0
-        layout.itemSize = CGSize(width: view.frame.width / 4.8, height:  view.frame.width / 4.8)
-        
-        levelsCollectionView.setCollectionViewLayout(layout, animated: true)
-        levelsCollectionView.delegate = self
-        levelsCollectionView.dataSource = self
-        levelsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        levelsCollectionView.register(levelsCell.self, forCellWithReuseIdentifier: "cell")
-        
+        collectionViewSettings()
         collectionViewLayout()
         backgroundImageConstraint()
         backButtonConstraint()
         reloadButtonConstraint()
-        
-        NSLayoutConstraint.activate([
-            borderImage.topAnchor.constraint(equalTo: levelsCollectionView.topAnchor, constant: -12),
-            borderImage.bottomAnchor.constraint(equalTo: levelsCollectionView.bottomAnchor, constant: 12),
-            borderImage.leadingAnchor.constraint(equalTo: levelsCollectionView.leadingAnchor, constant: -5),
-            borderImage.trailingAnchor.constraint(equalTo: levelsCollectionView.trailingAnchor, constant: 5),
-        ])
-        
-        
-        NSLayoutConstraint.activate([
-            borderReferenceImage.topAnchor.constraint(equalTo: referenceImage.topAnchor, constant: 0),
-            borderReferenceImage.bottomAnchor.constraint(equalTo: referenceImage.bottomAnchor, constant: 0),
-            borderReferenceImage.leadingAnchor.constraint(equalTo: referenceImage.leadingAnchor, constant: -6),
-            borderReferenceImage.trailingAnchor.constraint(equalTo: referenceImage.trailingAnchor, constant: 6),
-        ])
+        shadowSettings()
+        borderImageLayout()
+        referenceImageLayout()
+        labelsLayout()
         
         timerLabel.font = UIFont(name: "Marker felt", size: view.frame.height * 0.04)
         currentlevelLabel.font = UIFont(name: "Marker felt", size: view.frame.height * 0.04)
-        
-        NSLayoutConstraint.activate([
-            backgroundLevelLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            backgroundLevelLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            backgroundLevelLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3.5),
-            backgroundLevelLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/18),
-            
-            currentlevelLabel.centerXAnchor.constraint(equalTo: backgroundLevelLabel.centerXAnchor),
-            currentlevelLabel.centerYAnchor.constraint(equalTo: backgroundLevelLabel.centerYAnchor),
-            
-            backgroundTimeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            backgroundTimeLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            backgroundTimeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3.5),
-            backgroundTimeLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/18),
-            
-            timerLabel.centerXAnchor.constraint(equalTo: backgroundTimeLabel.centerXAnchor),
-            timerLabel.centerYAnchor.constraint(equalTo: backgroundTimeLabel.centerYAnchor)
-        ])
-        
-        
-        NSLayoutConstraint.activate([
-            referenceImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            referenceImage.topAnchor.constraint(equalTo: levelsCollectionView.bottomAnchor, constant: 60),
-            referenceImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
-            referenceImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
-        ])
     }
     
     
+    //MARK: - Work with collectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentLevelArray.count
     }
@@ -253,7 +190,6 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         for (i, ind) in currentLevelArray.enumerated() {
             if i == ind.puzzleId {
                 score += 1
-                print("Score \(score)")
             }else {
                 score -= 1
             }
@@ -261,10 +197,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         if score == 16 {
             let vc = LevelEndScreen()
             vc.result = .win
-          //  vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
-            print("Score \(score)")
-            print("You Win")
         }
     }
     
@@ -274,7 +207,74 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     
-    func collectionViewLayout() {
+    private func shadowSettings() {
+        shadows.makeShadowForOne(object: timerLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.0, Opacity: 2.0)
+        
+        shadows.makeShadowForOne(object: currentlevelLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.0, Opacity: 2.0)
+    }
+    
+    
+    //MARK: - Layout
+    private func collectionViewSettings() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 5.0
+        layout.minimumInteritemSpacing = 5.0
+        layout.itemSize = CGSize(width: view.frame.width / 4.8, height:  view.frame.width / 4.8)
+        
+        levelsCollectionView.setCollectionViewLayout(layout, animated: true)
+        levelsCollectionView.delegate = self
+        levelsCollectionView.dataSource = self
+        levelsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        levelsCollectionView.register(levelsCell.self, forCellWithReuseIdentifier: "cell")
+    }
+    
+    
+    private func referenceImageLayout() {
+        NSLayoutConstraint.activate([
+            referenceImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            referenceImage.topAnchor.constraint(equalTo: levelsCollectionView.bottomAnchor, constant: 60),
+            referenceImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
+            referenceImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/4),
+        ])
+    }
+    
+    
+    private func labelsLayout() {
+        NSLayoutConstraint.activate([
+            backgroundLevelLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundLevelLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            backgroundLevelLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3.5),
+            backgroundLevelLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/18),
+            currentlevelLabel.centerXAnchor.constraint(equalTo: backgroundLevelLabel.centerXAnchor),
+            currentlevelLabel.centerYAnchor.constraint(equalTo: backgroundLevelLabel.centerYAnchor),
+            backgroundTimeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            backgroundTimeLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            backgroundTimeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3.5),
+            backgroundTimeLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/18),
+            timerLabel.centerXAnchor.constraint(equalTo: backgroundTimeLabel.centerXAnchor),
+            timerLabel.centerYAnchor.constraint(equalTo: backgroundTimeLabel.centerYAnchor)
+        ])
+    }
+    
+    
+    private func borderImageLayout() {
+        NSLayoutConstraint.activate([
+            borderImage.topAnchor.constraint(equalTo: levelsCollectionView.topAnchor, constant: -12),
+            borderImage.bottomAnchor.constraint(equalTo: levelsCollectionView.bottomAnchor, constant: 12),
+            borderImage.leadingAnchor.constraint(equalTo: levelsCollectionView.leadingAnchor, constant: -5),
+            borderImage.trailingAnchor.constraint(equalTo: levelsCollectionView.trailingAnchor, constant: 5),
+        ])
+        
+        NSLayoutConstraint.activate([
+            borderReferenceImage.topAnchor.constraint(equalTo: referenceImage.topAnchor, constant: 0),
+            borderReferenceImage.bottomAnchor.constraint(equalTo: referenceImage.bottomAnchor, constant: 0),
+            borderReferenceImage.leadingAnchor.constraint(equalTo: referenceImage.leadingAnchor, constant: -6),
+            borderReferenceImage.trailingAnchor.constraint(equalTo: referenceImage.trailingAnchor, constant: 6),
+        ])
+    }
+    
+    
+    private func collectionViewLayout() {
         NSLayoutConstraint.activate([
             levelsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
             levelsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -21),
@@ -284,7 +284,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     
-    func backButtonConstraint(){
+    private func backButtonConstraint(){
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.height * 0.035),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
@@ -294,7 +294,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     
-    func reloadButtonConstraint(){
+    private func reloadButtonConstraint(){
         NSLayoutConstraint.activate([
             reloadButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: view.frame.height * 0.035),
             reloadButton.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 15),
@@ -304,7 +304,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     
-    func backgroundImageConstraint(){
+    private func backgroundImageConstraint(){
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -326,7 +326,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         if runCount <= 0 {
             let vc = LevelEndScreen()
             vc.result = .luse
-          //  vc.modalPresentationStyle = .fullScreen
+            //  vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
             print("You lose")
             timer.invalidate()
