@@ -15,6 +15,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     var currentLevelArray = [LevelModel]()
     var numberOfLevel: Int = 0
     var runCount = 12
+    var startTime = 0
     var imageLevel = UIImage()
     var timer: Timer?
     
@@ -75,6 +76,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Group 2"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(reloadButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -133,7 +135,7 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
         view.addSubview(referenceImage)
         view.addSubview(borderImage)
         view.addSubview(borderReferenceImage)
-        
+        startTime = runCount
         currentlevelLabel.text = "LVL-\(numberOfLevel)"
         backgroundTimeLabel.image = UIImage(named: "Rectangle 3")
         backgroundLevelLabel.image = UIImage(named: "Rectangle 3")
@@ -358,5 +360,13 @@ class CurrentLevelViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func backButtonAction() {
         self.dismiss(animated: true)
     }
+    
+    @objc func reloadButtonAction() {
+        runCount = startTime
+        currentLevelArray.shuffle()
+        levelsCollectionView.reloadData()
+        
+    }
+    
     
 }
