@@ -29,7 +29,7 @@ class levelsCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .systemPink
         label.textAlignment = .center
-        label.font = UIFont(name: "Marker felt", size: 15)
+        label.font = UIFont(name: "Knewave-Regular", size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,6 +51,14 @@ class levelsCell: UICollectionViewCell {
         backgroundImage.image = UIImage(named: "candy frame")
         numberOfLevelBackground.image = UIImage(named: "Ellipse 1")
         layoutSettings()
+        
+        numberOfLevelLabel.attributedText = NSAttributedString(string: "0", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: 8,
+            .font: UIFont(name: "Knewave-Regular", size: 15)!
+        ])
+        
     }
     
     

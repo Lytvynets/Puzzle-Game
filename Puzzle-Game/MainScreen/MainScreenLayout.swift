@@ -29,10 +29,10 @@ extension MainViewController {
     
     
     func fontSettings() {
-        playButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        gameRulesButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        settingsButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        privacyPolicyButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
+        playButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        gameRulesButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        settingsButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        privacyPolicyButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
     }
     
     

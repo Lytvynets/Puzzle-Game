@@ -16,7 +16,8 @@ class SettingsViewController: UIViewController {
         let label = UILabel()
         label.text = "SETTINGS"
         label.textColor = .white
-        label.font = UIFont(name: "Marker felt", size: 34)
+        label.textAlignment = .center
+        label.font = UIFont(name: "Knewave-Regular", size: 34)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -116,6 +117,15 @@ class SettingsViewController: UIViewController {
         vibroButtonConstraint()
         rateUsButtonConstraint()
         fontButtonsSettings()
+        
+        
+        settingsLabel.attributedText = NSAttributedString(string: "SETTINGS", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: -9,
+            .font: UIFont(name: "Knewave-Regular", size: 34)!
+        ])
+        
     }
     
     
@@ -125,11 +135,11 @@ class SettingsViewController: UIViewController {
     
     
     func fontButtonsSettings() {
-        soundButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        soundOffButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        vibroButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        vibroOffButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
-        rateUsButton.titleLabel?.font = UIFont(name: "Marker felt", size: 34)
+        soundButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        soundOffButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        vibroButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        vibroOffButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
+        rateUsButton.titleLabel?.font = UIFont(name: "Knewave-Regular", size: 34)
     }
     
     
@@ -189,7 +199,8 @@ class SettingsViewController: UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 60),
             settingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             settingsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            settingsLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
+            settingsLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            settingsLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
         ])
     }
     

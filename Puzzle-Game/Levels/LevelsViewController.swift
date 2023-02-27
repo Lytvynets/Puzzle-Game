@@ -94,9 +94,10 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     lazy private var levelsLabel: UILabel = {
         let label = UILabel()
-        label.text = "Levels"
+        label.text = "LEVELS"
         label.textColor = .white
-        label.font = UIFont(name: "Marker felt", size: 34)
+        label.textAlignment = .center
+        label.font = UIFont(name: "Knewave-Regular", size: 34)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -127,11 +128,19 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.addSubview(levelsLabel)
         view.addSubview(levelsCollectionView)
         
-        shadowSettings()
+      //  shadowSettings()
         collectionViewSettings()
         collectionViewLayout()
         backgroundImageConstraint()
         backButtonConstraint()
+        
+        levelsLabel.attributedText = NSAttributedString(string: "LEVELS", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: -9,
+            .font: UIFont(name: "Knewave-Regular", size: 34)!
+        ])
+        
     }
     
     
@@ -210,14 +219,15 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
             backButton.heightAnchor.constraint(equalToConstant: 60),
             levelsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             levelsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            levelsLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
+            levelsLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
+            levelsLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
         ])
     }
     
     
-    private func shadowSettings() {
-        shadows.makeShadowForOne(object: levelsLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.5, Opacity: 2.5)
-    }
+//    private func shadowSettings() {
+//        shadows.makeShadowForOne(object: levelsLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.5, Opacity: 2.5)
+//    }
     
     
     //MARK: - Actions
