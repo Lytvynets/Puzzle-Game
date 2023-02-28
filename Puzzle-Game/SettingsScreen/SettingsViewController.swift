@@ -109,7 +109,6 @@ class SettingsViewController: UIViewController {
         view.addSubview(vibroButton)
         view.addSubview(vibroOffButton)
         view.addSubview(rateUsButton)
-        
         shadowSettings()
         backgroundImageConstraint()
         backButtonConstraint()
@@ -117,7 +116,6 @@ class SettingsViewController: UIViewController {
         vibroButtonConstraint()
         rateUsButtonConstraint()
         fontButtonsSettings()
-        
         
         settingsLabel.attributedText = NSAttributedString(string: "SETTINGS", attributes: [
             .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),

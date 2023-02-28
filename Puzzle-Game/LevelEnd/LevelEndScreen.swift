@@ -19,6 +19,8 @@ class LevelEndScreen: UIViewController {
     var result: Result = .win
     var time = 0
     var bestTime = 0
+    var roundWon = 0
+    
     
     //MARK: Labels
     lazy private var resultLabel: UILabel = {
@@ -63,13 +65,6 @@ class LevelEndScreen: UIViewController {
         return imageView
     }()
     
-    lazy var resultImageView2: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.image = UIImage(named: "Level completed")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
     
     lazy var timeImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -93,6 +88,7 @@ class LevelEndScreen: UIViewController {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Group 3"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(nextRoundButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -114,11 +110,12 @@ class LevelEndScreen: UIViewController {
     
     
     //MARK: - viewDidLoad
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black.withAlphaComponent(0.8)
         view.addSubview(resultImageView)
-        // view.addSubview(resultImageView2)
         view.addSubview(resultLabel)
         view.addSubview(timeImageView)
         view.addSubview(bestImageView)
@@ -127,44 +124,24 @@ class LevelEndScreen: UIViewController {
         view.addSubview(nextButton)
         view.addSubview(homeButton)
         view.addSubview(repeatButton)
-        
-        // shadowsSettings()
+        bestTime = UserDefaults.standard.integer(forKey: "BestTime")
+        bestTimeObserver()
         layoutSettings()
-        
-        timetLabel.attributedText = NSAttributedString(string: "TIME: 00:00", attributes: [
-            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
-            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-            .strokeWidth: 8,
-            .font: UIFont(name: "Knewave-Regular", size: 25)!
-        ])
-        
-        bestTimetLabel.attributedText = NSAttributedString(string: "BEST TIME: 00:00", attributes: [
-            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
-            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-            .strokeWidth: 8,
-            .font: UIFont(name: "Knewave-Regular", size: 25)!
-        ])
-        
-        resultLabel.attributedText = NSAttributedString(string: " ", attributes: [
-            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
-            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-            .strokeWidth: -11,
-            .font: UIFont(name: "Knewave-Regular", size: 50)!
-        ])
+        fontSettings()
         
         switch result {
         case .win:
             resultImageView.image = UIImage(named: "imageEndScreen2")
-            //  resultImageView2.image = UIImage(named: "Level completed")
             resultLabel.text = "LEVEL \n COMPLETED"
             timeConvert()
+            bestTimeConvert()
             bestImageView.isHidden = false
             bestTimetLabel.isHidden = false
             
         case .luse:
             resultImageView.image = UIImage(named: "imageEndScreen")
-            //   resultImageView2.image = UIImage(named: "level failed")
             resultLabel.text = "LEVEL \n FAILED"
+            timeConvert()
             bestImageView.isHidden = true
             bestTimetLabel.isHidden = true
             nextButton.tintColor = .gray
@@ -173,10 +150,12 @@ class LevelEndScreen: UIViewController {
     }
     
     
-    init(time: Int) {
+    init(time: Int, roundWon: Int ) {
         super.init(nibName: nil, bundle: nil)
         self.time = time
+        self.roundWon = roundWon
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -192,24 +171,63 @@ class LevelEndScreen: UIViewController {
     }
     
     
+    private func bestTimeConvert() {
+        if(self.bestTime > 0){
+            let minutes = String(bestTime / 60)
+            let seconds = String(bestTime % 60)
+            bestTimetLabel.text = "BEST TIME: " + "0" + minutes + ":" + seconds
+        }
+    }
+    
+    
+    private func bestTimeObserver() {
+        guard result == .win else { return }
+        if bestTime <= 0 {
+            bestTime = time
+            UserDefaults.standard.set(time, forKey: "BestTime")
+        }else if bestTime > time {
+            bestTime = time
+            UserDefaults.standard.set(time, forKey: "BestTime")
+        }else {
+            bestTime = UserDefaults.standard.integer(forKey: "BestTime")
+        }
+    }
+    
+    
+    private func fontSettings() {
+        timetLabel.attributedText = NSAttributedString(string: "TIME: 00:00", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: 8,
+            .font: UIFont(name: "Knewave-Regular", size: view.frame.height * 0.03)!
+        ])
+        
+        bestTimetLabel.attributedText = NSAttributedString(string: "BEST TIME: 00:00", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: 8,
+            .font: UIFont(name: "Knewave-Regular", size: view.frame.height * 0.03)!
+        ])
+        
+        resultLabel.attributedText = NSAttributedString(string: " ", attributes: [
+            .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            .strokeWidth: -11,
+            .font: UIFont(name: "Knewave-Regular", size: view.frame.height * 0.06)!
+        ])
+    }
+    
+    
     //MARK: - Layout
     private func layoutSettings() {
         NSLayoutConstraint.activate([
             resultImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             resultImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             resultImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
-            
-            //    resultImageView2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            //            resultImageView2.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: -100),
-            //            resultImageView2.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
-            
             resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             resultLabel.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: -100),
             resultLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/3),
             resultLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/5),
-            
-            
-            
             timeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timeImageView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 5),
             timeImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
@@ -248,14 +266,53 @@ class LevelEndScreen: UIViewController {
     }
     
     
+    
+    //MARK: - Actions
     @objc func repeatButtonAction() {
         dismiss(animated: true)
-        
-        
     }
     
-    deinit {
-        print("Deinit LevelEndScreen")
+    
+    @objc func nextRoundButtonAction() {
+        switch roundWon {
+        case 0:
+            print("0")
+        case 1:
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl2
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        case 2:
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl3
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        case 3:
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl4
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        case 4:
+            print("5")
+        case 5:
+            print("6")
+        case 6:
+            print("7")
+        case 7:
+            print("8")
+        case 8:
+            print("9")
+        case 9:
+            print("10")
+        case 10:
+            print("11")
+        case 11:
+            print("12")
+        case 12:
+            print("1")
+        default:
+            print("0")
+        }
     }
     
     
@@ -264,10 +321,6 @@ class LevelEndScreen: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .flipHorizontal
         self.present(vc, animated: true)
-        
-        
-        
     }
-    
     
 }

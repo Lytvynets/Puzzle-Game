@@ -27,63 +27,6 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     ]
     
     
-    var lvl1 = [LevelModel(puzzleId: 0, puzzleImage: UIImage(named: "imageLvl1_1")!),
-                LevelModel(puzzleId: 1, puzzleImage: UIImage(named: "imageLvl1_2")!),
-                LevelModel(puzzleId: 2, puzzleImage: UIImage(named: "imageLvl1_3")!),
-                LevelModel(puzzleId: 3, puzzleImage: UIImage(named: "imageLvl1_4")!),
-                LevelModel(puzzleId: 4, puzzleImage: UIImage(named: "imageLvl1_5")!),
-                LevelModel(puzzleId: 5, puzzleImage: UIImage(named: "imageLvl1_6")!),
-                LevelModel(puzzleId: 6, puzzleImage: UIImage(named: "imageLvl1_7")!),
-                LevelModel(puzzleId: 7, puzzleImage: UIImage(named: "imageLvl1_8")!),
-                LevelModel(puzzleId: 8, puzzleImage: UIImage(named: "imageLvl1_9")!),
-                LevelModel(puzzleId: 9, puzzleImage: UIImage(named: "imageLvl1_10")!),
-                LevelModel(puzzleId: 10, puzzleImage: UIImage(named: "imageLvl1_11")!),
-                LevelModel(puzzleId: 11, puzzleImage: UIImage(named: "imageLvl1_12")!),
-                LevelModel(puzzleId: 12, puzzleImage: UIImage(named: "imageLvl1_13")!),
-                LevelModel(puzzleId: 13, puzzleImage: UIImage(named: "imageLvl1_14")!),
-                LevelModel(puzzleId: 14, puzzleImage: UIImage(named: "imageLvl1_15")!),
-                LevelModel(puzzleId: 15, puzzleImage: UIImage(named: "imageLvl1_16")!),
-    ]
-    
-    
-    var lvl2 = [LevelModel(puzzleId: 0, puzzleImage: UIImage(named: "imagelvl2_1")!),
-                LevelModel(puzzleId: 1, puzzleImage: UIImage(named: "imagelvl2_2")!),
-                LevelModel(puzzleId: 2, puzzleImage: UIImage(named: "imagelvl2_3")!),
-                LevelModel(puzzleId: 3, puzzleImage: UIImage(named: "imagelvl2_4")!),
-                LevelModel(puzzleId: 4, puzzleImage: UIImage(named: "imagelvl2_5")!),
-                LevelModel(puzzleId: 5, puzzleImage: UIImage(named: "imagelvl2_6")!),
-                LevelModel(puzzleId: 6, puzzleImage: UIImage(named: "imagelvl2_7")!),
-                LevelModel(puzzleId: 7, puzzleImage: UIImage(named: "imagelvl2_8")!),
-                LevelModel(puzzleId: 8, puzzleImage: UIImage(named: "imagelvl2_9")!),
-                LevelModel(puzzleId: 9, puzzleImage: UIImage(named: "imagelvl2_10")!),
-                LevelModel(puzzleId: 10, puzzleImage: UIImage(named: "imagelvl2_11")!),
-                LevelModel(puzzleId: 11, puzzleImage: UIImage(named: "imagelvl2_12")!),
-                LevelModel(puzzleId: 12, puzzleImage: UIImage(named: "imagelvl2_13")!),
-                LevelModel(puzzleId: 13, puzzleImage: UIImage(named: "imagelvl2_14")!),
-                LevelModel(puzzleId: 14, puzzleImage: UIImage(named: "imagelvl2_15")!),
-                LevelModel(puzzleId: 15, puzzleImage: UIImage(named: "imagelvl2_16")!),
-    ]
-    
-    
-    var lvl3 = [LevelModel(puzzleId: 0, puzzleImage: UIImage(named: "imagelvl3_0")!),
-                LevelModel(puzzleId: 1, puzzleImage: UIImage(named: "imagelvl3_1")!),
-                LevelModel(puzzleId: 2, puzzleImage: UIImage(named: "imagelvl3_2")!),
-                LevelModel(puzzleId: 3, puzzleImage: UIImage(named: "imagelvl3_3")!),
-                LevelModel(puzzleId: 4, puzzleImage: UIImage(named: "imagelvl3_4")!),
-                LevelModel(puzzleId: 5, puzzleImage: UIImage(named: "imagelvl3_5")!),
-                LevelModel(puzzleId: 6, puzzleImage: UIImage(named: "imagelvl3_6")!),
-                LevelModel(puzzleId: 7, puzzleImage: UIImage(named: "imagelvl3_7")!),
-                LevelModel(puzzleId: 8, puzzleImage: UIImage(named: "imagelvl3_8")!),
-                LevelModel(puzzleId: 9, puzzleImage: UIImage(named: "imagelvl3_9")!),
-                LevelModel(puzzleId: 10, puzzleImage: UIImage(named: "imagelvl3_10")!),
-                LevelModel(puzzleId: 11, puzzleImage: UIImage(named: "imagelvl3_11")!),
-                LevelModel(puzzleId: 12, puzzleImage: UIImage(named: "imagelvl3_12")!),
-                LevelModel(puzzleId: 13, puzzleImage: UIImage(named: "imagelvl3_13")!),
-                LevelModel(puzzleId: 14, puzzleImage: UIImage(named: "imagelvl3_14")!),
-                LevelModel(puzzleId: 15, puzzleImage: UIImage(named: "imagelvl3_15")!),
-    ]
-    
-    
     private let levelsCollectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
@@ -127,8 +70,6 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.addSubview(backButton)
         view.addSubview(levelsLabel)
         view.addSubview(levelsCollectionView)
-        
-      //  shadowSettings()
         collectionViewSettings()
         collectionViewLayout()
         backgroundImageConstraint()
@@ -140,7 +81,6 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
             .strokeWidth: -9,
             .font: UIFont(name: "Knewave-Regular", size: 34)!
         ])
-        
     }
     
     
@@ -161,28 +101,32 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            let vc = CurrentLevelViewController(lvlArray: lvl1, numberOfLevel: 1, imageLevel: UIImage(named: "level1Preview")!, time: 180)
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl1
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         case 1:
-            let vc = CurrentLevelViewController(lvlArray: lvl2, numberOfLevel: 2, imageLevel: UIImage(named: "level2preview")!, time: 170)
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl2
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         case 2:
-            let vc = CurrentLevelViewController(lvlArray: lvl3, numberOfLevel: 3, imageLevel: UIImage(named: "level3Preview")!, time: 160)
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl3
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         default:
-            let vc = CurrentLevelViewController(lvlArray: lvl1, numberOfLevel: indexPath.item + 1, imageLevel: UIImage(named: "level1Preview")!, time: 10)
+            let vc = CurrentLevelViewController()
+            vc.currentLevel = .lvl4
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
     }
     
+    
     private func collectionViewSettings() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width / 3.5, height:  view.frame.width / 3.5)
-        
         levelsCollectionView.setCollectionViewLayout(layout, animated: true)
         levelsCollectionView.delegate = self
         levelsCollectionView.dataSource = self
@@ -190,6 +134,7 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
         levelsCollectionView.register(levelsCell.self, forCellWithReuseIdentifier: "cell")
         levelsCollectionView.backgroundColor = .clear
     }
+    
     
     private func collectionViewLayout() {
         NSLayoutConstraint.activate([
@@ -223,11 +168,6 @@ class LevelsViewController: UIViewController, UICollectionViewDelegate, UICollec
             levelsLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3),
         ])
     }
-    
-    
-//    private func shadowSettings() {
-//        shadows.makeShadowForOne(object: levelsLabel, borderWidth: nil, borderColor: nil, shadowColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1), shadowRadius: 2.5, Opacity: 2.5)
-//    }
     
     
     //MARK: - Actions

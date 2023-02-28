@@ -51,14 +51,12 @@ class levelsCell: UICollectionViewCell {
         backgroundImage.image = UIImage(named: "candy frame")
         numberOfLevelBackground.image = UIImage(named: "Ellipse 1")
         layoutSettings()
-        
         numberOfLevelLabel.attributedText = NSAttributedString(string: "0", attributes: [
             .strokeColor: #colorLiteral(red: 0.954411447, green: 0.2074526548, blue: 0.7778509259, alpha: 1),
             .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
             .strokeWidth: 8,
             .font: UIFont(name: "Knewave-Regular", size: 15)!
         ])
-        
     }
     
     
@@ -80,7 +78,8 @@ class levelsCell: UICollectionViewCell {
             numberOfLevelBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             numberOfLevelBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             numberOfLevelLabel.centerXAnchor.constraint(equalTo: numberOfLevelBackground.centerXAnchor),
-            numberOfLevelLabel.centerYAnchor.constraint(equalTo: numberOfLevelBackground.centerYAnchor)
+            numberOfLevelLabel.centerYAnchor.constraint(equalTo: numberOfLevelBackground.centerYAnchor),
+            numberOfLevelLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1/4)
         ])
     }
 }

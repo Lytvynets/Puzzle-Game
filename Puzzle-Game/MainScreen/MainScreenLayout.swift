@@ -17,7 +17,6 @@ extension MainViewController {
         view.addSubview(gameRulesButton)
         view.addSubview(settingsButton)
         view.addSubview(privacyPolicyButton)
-        
         backgroundImageConstraint()
         logoImageConstraint()
         playButtonConstraint()
