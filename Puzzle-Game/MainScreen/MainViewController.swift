@@ -83,12 +83,73 @@ class MainViewController: UIViewController {
     }()
     
     
+    //MARK: - Gradient
+    var gradientPlayButton: CAGradientLayer! {
+        didSet {
+            gradientPlayButton.startPoint = CGPoint(x: 1, y: 1)
+            gradientPlayButton.endPoint = CGPoint(x: 1, y: 0)
+            gradientPlayButton.colors = [#colorLiteral(red: 0.703831017, green: 0.1428215206, blue: 0.5742830038, alpha: 1).cgColor, #colorLiteral(red: 0.976688683, green: 0.212975353, blue: 0.7945819497, alpha: 1).cgColor,]
+        }
+    }
+    
+    var gradientGameRulesButton: CAGradientLayer! {
+        didSet {
+            gradientGameRulesButton.startPoint = CGPoint(x: 1, y: 1)
+            gradientGameRulesButton.endPoint = CGPoint(x: 1, y: 0)
+            gradientGameRulesButton.colors = [#colorLiteral(red: 0.703831017, green: 0.1428215206, blue: 0.5742830038, alpha: 1).cgColor, #colorLiteral(red: 0.976688683, green: 0.212975353, blue: 0.7945819497, alpha: 1).cgColor,]
+        }
+    }
+    
+    var gradientSettingsButton: CAGradientLayer! {
+        didSet {
+            gradientSettingsButton.startPoint = CGPoint(x: 1, y: 1)
+            gradientSettingsButton.endPoint = CGPoint(x: 1, y: 0)
+            gradientSettingsButton.colors = [#colorLiteral(red: 0.703831017, green: 0.1428215206, blue: 0.5742830038, alpha: 1).cgColor, #colorLiteral(red: 0.976688683, green: 0.212975353, blue: 0.7945819497, alpha: 1).cgColor,]
+        }
+    }
+    
+    var gradientPrivacyPolicyButton: CAGradientLayer! {
+        didSet {
+            gradientPrivacyPolicyButton.startPoint = CGPoint(x: 1, y: 1)
+            gradientPrivacyPolicyButton.endPoint = CGPoint(x: 1, y: 0)
+            gradientPrivacyPolicyButton.colors = [#colorLiteral(red: 0.703831017, green: 0.1428215206, blue: 0.5742830038, alpha: 1).cgColor, #colorLiteral(red: 0.976688683, green: 0.212975353, blue: 0.7945819497, alpha: 1).cgColor,]
+        }
+    }
+    
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        gradientPlayButton = CAGradientLayer()
+        gradientPlayButton.cornerRadius = 25
+        
+        gradientGameRulesButton = CAGradientLayer()
+        gradientGameRulesButton.cornerRadius = 25
+        
+        gradientSettingsButton = CAGradientLayer()
+        gradientSettingsButton.cornerRadius = 25
+        
+        gradientPrivacyPolicyButton = CAGradientLayer()
+        gradientPrivacyPolicyButton.cornerRadius = 25
+        
+        playButton.layer.insertSublayer(gradientPlayButton, at: 0)
+        gameRulesButton.layer.insertSublayer(gradientGameRulesButton, at: 0)
+        settingsButton.layer.insertSublayer(gradientSettingsButton, at: 0)
+        privacyPolicyButton.layer.insertSublayer(gradientPrivacyPolicyButton, at: 0)
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        gradientPlayButton.frame = CGRect(x: 0, y: 0, width: self.playButton.bounds.size.width, height: self.playButton.bounds.size.height)
+        gradientGameRulesButton.frame = CGRect(x: 0, y: 0, width: self.gameRulesButton.bounds.size.width, height: self.gameRulesButton.bounds.size.height)
+        gradientSettingsButton.frame = CGRect(x: 0, y: 0, width: self.settingsButton.bounds.size.width, height: self.settingsButton.bounds.size.height)
+        gradientPrivacyPolicyButton.frame = CGRect(x: 0, y: 0, width: self.privacyPolicyButton.bounds.size.width, height: self.gameRulesButton.bounds.size.height)
+        
+        
+        
+    }
     
     //MARK: Actions
     @objc func playButtonAction() {
