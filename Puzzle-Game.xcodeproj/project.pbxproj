@@ -12,8 +12,8 @@
 		18429D6D29A7B7D900AB9E80 /* MainScreenLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */; };
 		18429D6F29A7BA9D00AB9E80 /* levelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18429D6E29A7BA9D00AB9E80 /* levelsCell.swift */; };
 		186EA79929A7DA1500263CD1 /* CurrentLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EA79829A7DA1500263CD1 /* CurrentLevelViewController.swift */; };
+		188ABFE229ADFB53006D815E /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188ABFE129ADFB53006D815E /* Knewave-Regular.ttf */; };
 		18AD9ED629A8307200B34C62 /* LevelEndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD9ED529A8307200B34C62 /* LevelEndScreen.swift */; };
-		18BA733929AD30B400CB1A58 /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18BA733829AD30B400CB1A58 /* Knewave-Regular.ttf */; };
 		18C7A1E229A78FF700E87F0B /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7A1E129A78FF700E87F0B /* LevelsViewController.swift */; };
 		18C7A1E429A7A29F00E87F0B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7A1E329A7A29E00E87F0B /* SettingsViewController.swift */; };
 		18D8E43B29A778A5009A3802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8E43A29A778A5009A3802 /* AppDelegate.swift */; };
@@ -30,8 +30,8 @@
 		18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenLayout.swift; sourceTree = "<group>"; };
 		18429D6E29A7BA9D00AB9E80 /* levelsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelsCell.swift; sourceTree = "<group>"; };
 		186EA79829A7DA1500263CD1 /* CurrentLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLevelViewController.swift; sourceTree = "<group>"; };
+		188ABFE129ADFB53006D815E /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knewave-Regular.ttf"; sourceTree = "<group>"; };
 		18AD9ED529A8307200B34C62 /* LevelEndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEndScreen.swift; sourceTree = "<group>"; };
-		18BA733829AD30B400CB1A58 /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Knewave-Regular.ttf"; path = "../../../Knewave/Knewave-Regular.ttf"; sourceTree = "<group>"; };
 		18C7A1E129A78FF700E87F0B /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
 		18C7A1E329A7A29E00E87F0B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18D8E43729A778A5009A3802 /* Puzzle-Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Puzzle-Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +62,14 @@
 				18429D6C29A7B7D900AB9E80 /* MainScreenLayout.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		188ABFE029ADFB22006D815E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				188ABFE129ADFB53006D815E /* Knewave-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		1892206429A985860047C8E9 /* SystemFiles */ = {
@@ -115,14 +123,6 @@
 			path = LevelEnd;
 			sourceTree = "<group>";
 		};
-		18BA733729AD309C00CB1A58 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				18BA733829AD30B400CB1A58 /* Knewave-Regular.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		18D8E42E29A778A5009A3802 = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +142,7 @@
 		18D8E43929A778A5009A3802 /* Puzzle-Game */ = {
 			isa = PBXGroup;
 			children = (
-				18BA733729AD309C00CB1A58 /* Fonts */,
+				188ABFE029ADFB22006D815E /* Fonts */,
 				1892206429A985860047C8E9 /* SystemFiles */,
 				18429D6B29A7B76200AB9E80 /* MainScreen */,
 				1892206629A985F20047C8E9 /* Levels */,
@@ -219,7 +219,7 @@
 				18D8E44729A778A6009A3802 /* LaunchScreen.storyboard in Resources */,
 				18D8E44429A778A6009A3802 /* Assets.xcassets in Resources */,
 				18D8E44229A778A5009A3802 /* Main.storyboard in Resources */,
-				18BA733929AD30B400CB1A58 /* Knewave-Regular.ttf in Resources */,
+				188ABFE229ADFB53006D815E /* Knewave-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
